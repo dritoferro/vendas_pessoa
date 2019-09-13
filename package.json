@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/dritoferro/vendas_pessoa/issues"
   },
-  "homepage": "https://github.com/dritoferro/vendas_pessoa#readme"
+  "homepage": "https://github.com/dritoferro/vendas_pessoa#readme",
+  "dependencies": {
+    "typescript": "^3.6.3"
+  }
 }
