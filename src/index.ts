@@ -6,9 +6,9 @@ fast.get('/', async (request, reply) => {
 })
 
 // Run the server!
-const start = () => {
+const start = async () => {
     try {
-        fast.listen(3000)
+        await fast.listen(3000)
         fast.log.info(`server listening on ${fast.server.address().port}`)
     } catch (err) {
         fast.log.error(err)
