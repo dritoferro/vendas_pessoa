@@ -1,9 +1,11 @@
 import { MongoClient } from 'mongodb';
+import { config } from 'dotenv';
 
-const _url = '';
-
-export const openConn = async () => {
-    const conn = new MongoClient(_url, { useNewUrlParser: true, useUnifiedTopology : true });
+export const dbConn = async () => {
+    config();
+    const _url = '${process.env.DB_URL}';
+    
+    const conn = new MongoClient(_url, { useNewUrlParser: true, useUnifiedTopology: true });
     const client = await conn.connect();
-    return client.db('vendas');
+    return client.db('vendas').collection('pessoas');
 };
