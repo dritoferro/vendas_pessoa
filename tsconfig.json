@@ -14,16 +14,11 @@
     "target": "esnext",
     "resolveJsonModule": true,
     "baseUrl": "src/",
-    "paths": {
-      "app/*": [
-        "app/*"
-      ]
-    },
     "typeRoots": [
       "node_modules/@types"
     ],
     "lib": [
-      "es2015",
+      "es2020",
       "esnext"
     ]
   },
