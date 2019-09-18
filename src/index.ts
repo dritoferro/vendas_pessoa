@@ -11,7 +11,7 @@ fast.get('/', async (request, reply) => {
 const start = async () => {
     try {
         const db = await dbConn();
-        await db.insertOne({ nome: 'Adriano', documento: '999.999.999-99' });
+        await db.insertOne({ nome: 'Fulano', documento: '999.999.999-99' });
         // await fast.listen(3000)
         // fast.log.info(`server listening on ${fast.server.address().port}`)
     } catch (err) {
