@@ -1,4 +1,4 @@
-class Pessoa {
+export class Pessoa {
     id: string;
     nome: string;
     email: string;
