@@ -1,22 +1,19 @@
 import * as service from '../service/PessoaService';
 import * as endpoint from 'fastify';
+import { HTTPMethod } from 'fastify';
 import { Pessoa } from '../domain/Pessoa';
 
 const fast = endpoint({ logger: true });
 
-// fast.get('/', async (request, reply) => {
-//     return new Pessoa('User1', '123@email.com');
-// });
+const getMethod : HTTPMethod = 'GET';
+const postMethod : HTTPMethod = 'POST';
+const updateMethod : HTTPMethod = 'PUT';
 
 // Criar cada requisição abaixo em modelo de endpoint em vez de const
 
 // const getPessoaById = async (req, reply) => {
 
 // };
-
-// const insertPessoa = (pessoa: Pessoa) => new Promise<string>(async (resolve, reject) => {
-//     await service.insertPessoa(pessoa);
-// });
 
 // const updatePessoaById = async (pessoa: Pessoa, id: string) => new Promise<void>((resolve, reject) => {
 
@@ -28,9 +25,14 @@ const fast = endpoint({ logger: true });
 
 const routes = [
     {
-        method: 'GET',
+        method: getMethod,
         url: '/pessoas/:id',
         handler: service.getPessoaById
+    },
+    {
+        method: postMethod,
+        url: '/pessoas',
+        handler: service.insertPessoa
     }
 ];
 
