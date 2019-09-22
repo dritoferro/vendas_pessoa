@@ -1,16 +1,22 @@
 import { dbConn } from '../repository/DbConnection';
 import { Pessoa } from '../domain/Pessoa';
 
-export const insertPessoa = async (req, reply) => {
-    const body : Pessoa = req.body;
+export const insertPessoa = async (pessoa : Pessoa) => {
     const db = await dbConn();
-    const obj = await db.insertOne(body);
-    reply.status(201);
-    reply.send(obj.ops);
+    const obj = await db.insertOne(pessoa);
+    return obj.ops;
 }
 
-export const getPessoaById = async (req, reply) => {
-    const id = req.params.id;
+export const getPessoaById = async (id : String) => {
+    const db = await dbConn();
+    const obj = await db.getOne(id);
+    return obj;
+};
 
-    return new Pessoa('Adriano', 'email@email.com', id);
+export const updatePessoaById = async (pessoa : Pessoa, id : String) => {
+
+};
+
+export const deletePessoaById = async (id : String) => {
+
 };

@@ -5,47 +5,63 @@ import { Pessoa } from '../domain/Pessoa';
 
 const fast = endpoint({ logger: true });
 
-const getMethod : HTTPMethod = 'GET';
-const postMethod : HTTPMethod = 'POST';
-const updateMethod : HTTPMethod = 'PUT';
+const getMethod: HTTPMethod = 'GET';
+const postMethod: HTTPMethod = 'POST';
+const updateMethod: HTTPMethod = 'PUT';
+const deleteMethod: HTTPMethod = 'DELETE';
 
 // Criar cada requisição abaixo em modelo de endpoint em vez de const
 
-// const getPessoaById = async (req, reply) => {
+const insertPessoa = async (req, reply) => {
+    const obj : Pessoa = req.body;
+    const insert = await service.insertPessoa(obj);
+    if(insert){
+        reply.status(201);
+        reply.send(insert);
+    } else {
+        reply.status(400);
+        reply.send({message : 'Algo errado aconteceu'})
+    }
+};
 
-// };
+const getPessoaById = async (req, reply) => {
 
-// const updatePessoaById = async (pessoa: Pessoa, id: string) => new Promise<void>((resolve, reject) => {
+};
 
-// });
+const updatePessoaById = async (req, reply) => {
 
-// const deletePessoaById = async (id: string) => new Promise<boolean>((resolve, reject) => {
+};
 
-// });
+const deletePessoaById = async (req, reply) => {
+
+};
 
 const routes = [
     {
-        method: getMethod,
-        url: '/pessoas/:id',
-        handler: service.getPessoaById
-    },
-    {
         method: postMethod,
         url: '/pessoas',
-        handler: service.insertPessoa
+        handler: insertPessoa
+    },
+    {
+        method: getMethod,
+        url: '/pessoas/:id',
+        handler: getPessoaById
+    },
+    {
+        method: updateMethod,
+        url: '/pessoas/:id',
+        handler: updatePessoaById
+    },
+    {
+        method: deleteMethod,
+        url: '/pessoas/:id',
+        handler: deletePessoaById
     }
 ];
-
 
 routes.forEach(async (obj) => {
     fast.route(obj);
 });
-
-// fast.route({
-//     method: 'GET',
-//     url: '/pessoas/:id',
-//     handler: service.getPessoaById
-// });
 
 export const buildRoutes = async () => {
     await fast.listen(3000);
