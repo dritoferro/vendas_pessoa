@@ -13,27 +13,52 @@ const deleteMethod: HTTPMethod = 'DELETE';
 // Criar cada requisição abaixo em modelo de endpoint em vez de const
 
 const insertPessoa = async (req, reply) => {
-    const obj : Pessoa = req.body;
+    const obj: Pessoa = req.body;
     const insert = await service.insertPessoa(obj);
-    if(insert){
+    if (insert) {
         reply.status(201);
         reply.send(insert);
     } else {
         reply.status(400);
-        reply.send({message : 'Algo errado aconteceu'})
+        reply.send({ message: 'Algo errado aconteceu' });
     }
 };
 
 const getPessoaById = async (req, reply) => {
-
+    const id: String = req.params.id;
+    const get = await service.getPessoaById(id);
+    if (get) {
+        reply.status(200);
+        reply.send(get);
+    } else {
+        reply.status(204);
+        reply.send({ message: `Não foi possível encontrar a pessoa com o id = ${id}` });
+    }
 };
 
 const updatePessoaById = async (req, reply) => {
-
+    const id: String = req.params.id;
+    const pessoa: Pessoa = req.body;
+    const updated = await service.updatePessoaById(pessoa, id);
+    if (updated) {
+        reply.status(200);
+        reply.send({ update: updated });
+    } else {
+        reply.status(400);
+        reply.send({ message: `Não foi possível atualizar a pessoa com o id = ${id}` });
+    }
 };
 
 const deletePessoaById = async (req, reply) => {
-
+    const id: String = req.params.id;
+    const deleted = await service.deletePessoaById(id);
+    if (deleted) {
+        reply.status(200);
+        reply.send({ deletedCount: deleted });
+    } else {
+        reply.status(400);
+        reply.send({ message: `Não foi possível remover a pessoa com o id = ${id}` });
+    }
 };
 
 const routes = [
