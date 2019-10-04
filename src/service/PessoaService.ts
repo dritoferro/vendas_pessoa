@@ -4,7 +4,9 @@ import { ObjectId } from 'mongodb';
 
 export const insertPessoa = async (pessoa: Pessoa) => {
     const db = await dbConn();
-    const obj = await db.insertOne(pessoa);
+    const temp = new Pessoa(pessoa.nome, pessoa.email, pessoa._id, pessoa.documento, pessoa.isPj, pessoa.isActive);
+    console.log(temp);
+    const obj = await db.insertOne(temp);
     return obj.ops;
 }
 
