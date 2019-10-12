@@ -10,8 +10,6 @@ const postMethod: HTTPMethod = 'POST';
 const updateMethod: HTTPMethod = 'PUT';
 const deleteMethod: HTTPMethod = 'DELETE';
 
-// Criar cada requisição abaixo em modelo de endpoint em vez de const
-
 const insertPessoa = async (req, reply) => {
     const obj: Pessoa = req.body;
     const insert = await service.insertPessoa(obj);
