@@ -25,7 +25,7 @@ const insertPessoa = async (req, reply) => {
 };
 
 const getPessoaById = async (req, reply) => {
-    const id: String = req.params.id;
+    const id: string = req.params.id;
     const get = await service.getPessoaById(id);
     if (get) {
         reply.status(200);
@@ -37,7 +37,7 @@ const getPessoaById = async (req, reply) => {
 };
 
 const updatePessoaById = async (req, reply) => {
-    const id: String = req.params.id;
+    const id: string = req.params.id;
     const pessoa: Pessoa = req.body;
     const updated = await service.updatePessoaById(pessoa, id);
     if (updated) {
@@ -50,7 +50,7 @@ const updatePessoaById = async (req, reply) => {
 };
 
 const deletePessoaById = async (req, reply) => {
-    const id: String = req.params.id;
+    const id: string = req.params.id;
     const deleted = await service.deletePessoaById(id);
     if (deleted) {
         reply.status(200);

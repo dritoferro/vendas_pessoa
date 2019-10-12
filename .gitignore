@@ -65,3 +65,7 @@ out/
 
 # ignore vs code configs
 .vscode/
+
+# ignore sonar files
+.sonar_lock
+report-task.txt

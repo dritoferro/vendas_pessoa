@@ -10,12 +10,12 @@ export const insertPessoa = async (pessoa: Pessoa) => {
     return obj.ops;
 }
 
-export const getPessoaById = async (id: String) => {
+export const getPessoaById = async (id: string) => {
     const db = await dbConn();
     return await db.findOne({ "_id": new ObjectId(id) });
 };
 
-export const updatePessoaById = async (pessoa: Pessoa, id: String) => {
+export const updatePessoaById = async (pessoa: Pessoa, id: string) => {
     const db = await dbConn();
     const obj = await db.replaceOne({ "_id": new ObjectId(id) }, pessoa);
     console.log(obj);
@@ -27,7 +27,7 @@ export const updatePessoaById = async (pessoa: Pessoa, id: String) => {
     }
 };
 
-export const deletePessoaById = async (id: String) => {
+export const deletePessoaById = async (id: string) => {
     const db = await dbConn();
     const obj = await db.deleteOne({ "_id": new ObjectId(id) });
     return obj.deletedCount;
