@@ -17,8 +17,10 @@ export const getPessoaById = async (id: String) => {
 
 export const updatePessoaById = async (pessoa: Pessoa, id: String) => {
     const db = await dbConn();
-    const obj = await db.updateOne({ "_id": new ObjectId(id) }, pessoa);
-    if (obj.nMatched && obj.nModified) {
+    const obj = await db.replaceOne({ "_id": new ObjectId(id) }, pessoa);
+    console.log(obj);
+    
+    if (obj.modifiedCount) {
         return true;
     } else {
         return false;
