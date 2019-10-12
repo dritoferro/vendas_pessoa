@@ -17,6 +17,7 @@ WORKDIR /usr/src/app
 COPY ./src src
 COPY tsconfig.json .
 RUN npm run build
+RUN rm -rf src
 
 # ---
 
@@ -27,6 +28,6 @@ FROM node:carbon-stretch-slim
 WORKDIR /app
 
 ## We just need the build and package to execute the command
-COPY --from=builder /usr/src/app/out out
+COPY --from=builder /usr/src/app app
 
-CMD [ "node", "out/index.js" ]
+CMD [ "node", "app/out/index.js" ]
