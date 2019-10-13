@@ -1,6 +1,7 @@
-import * as service from '../service/PessoaService';
 import * as endpoint from 'fastify';
 import { HTTPMethod } from 'fastify';
+import * as ip from 'ip';
+import * as service from '../service/PessoaService';
 import { Pessoa } from '../domain/Pessoa';
 
 const fast = endpoint({ logger: true });
@@ -87,5 +88,7 @@ routes.forEach(async (obj) => {
 });
 
 export const buildRoutes = async () => {
-    await fast.listen(3000);
+    console.log(ip.address());
+    const addr = ip.address();
+    await fast.listen({ port: 3000, host: addr });
 };
