@@ -12,6 +12,4 @@ RUN rm -rf src
 
 COPY enviroments.env /app
 
-EXPOSE 3000
-
 CMD [ "node", "out/index.js" ]
