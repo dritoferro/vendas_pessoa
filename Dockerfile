@@ -27,7 +27,9 @@ FROM node:carbon-stretch-slim
 ## Clean new directory
 WORKDIR /app
 
-## We just need the build and package to execute the command
-COPY --from=builder /usr/src/app app
+COPY enviroments.env /app
 
-CMD [ "node", "app/out/index.js" ]
+## We just need the build and package to execute the command
+COPY --from=builder /usr/src/app msv
+
+CMD [ "node", "msv/out/index.js" ]
