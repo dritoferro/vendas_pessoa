@@ -3,30 +3,20 @@
   "compilerOptions": {
     "listFiles": true,
     "skipLibCheck": true,
-    "alwaysStrict": false,
     "rootDir": "src/",
-    "importHelpers": true,
     "outDir": "out/",
     "declaration": false,
     "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "target": "esnext",
-    "resolveJsonModule": true,
-    "baseUrl": "src/",
     "typeRoots": [
       "node_modules/@types"
     ],
     "lib": [
-      "es2020",
-      "esnext"
+      "es2018"
     ]
   },
   "sourceMap": true,
-  "include": [
-    "src/**/*"
-  ],
   "exclude": [
-    "node_modules"
+    "node_modules", 
+    "out"
   ]
 }
