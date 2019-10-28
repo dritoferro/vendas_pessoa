@@ -1,5 +1,5 @@
-# Vendas 
-Simple project to apply some concepts to develop microsservices.
+# Vendas Pessoas
+This is a module of People on the main project Vendas.
 
 ### In this project I am going to use:
 
