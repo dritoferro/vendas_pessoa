@@ -30,7 +30,7 @@ export const startConsumer = async () => {
 
     await consumer.run({
         eachMessage: async ({ topic, partition, message }) => {
-            console.log(message.value);
+            console.log(message.value.toString());
         }
     });
 };
