@@ -69,3 +69,6 @@ out/
 # ignore sonar files
 .sonar_lock
 report-task.txt
+
+# ignore directory files
+.directory
