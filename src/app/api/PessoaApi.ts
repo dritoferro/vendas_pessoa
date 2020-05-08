@@ -2,7 +2,7 @@ import * as endpoint from 'fastify';
 import { HTTPMethod } from 'fastify';
 import * as ip from 'ip';
 import * as service from '../service/PessoaService';
-import { Pessoa } from '../domain/Pessoa';
+import { Pessoa } from '../model/Pessoa';
 
 const fast = endpoint({ logger: true });
 

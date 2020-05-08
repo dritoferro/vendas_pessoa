@@ -1,5 +1,5 @@
-import { dbConn } from '../repository/DbConnection';
-import { Pessoa } from '../domain/Pessoa';
+import { dbConn } from '../../config/DbConnection';
+import { Pessoa } from '../model/Pessoa';
 import { ObjectId } from 'mongodb';
 
 export const insertPessoa = async (pessoa: Pessoa) => {

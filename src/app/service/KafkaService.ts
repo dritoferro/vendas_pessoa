@@ -1,8 +1,8 @@
 import { Kafka, CompressionTypes } from 'kafkajs';
-import { KafkaMessage } from '../domain/KafkaMessage';
+import { KafkaMessage } from '../model/KafkaMessage';
 import { getPessoaById } from '../service/PessoaService';
-import { Pessoa } from '../domain/Pessoa';
-import { KafkaQuery } from '../domain/KafkaQuery';
+import { Pessoa } from '../model/Pessoa';
+import { KafkaQuery } from '../model/KafkaQuery';
 
 const topic = 'Pessoa-Topic';
 
