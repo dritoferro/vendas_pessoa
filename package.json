@@ -29,6 +29,8 @@
     "typescript": "^3.6.3"
   },
   "devDependencies": {
-    "@types/ip": "^1.1.0"
+    "@types/ip": "^1.1.0",
+    "tslint": "^6.1.2",
+    "tslint-config-prettier": "^1.18.0"
   }
 }
