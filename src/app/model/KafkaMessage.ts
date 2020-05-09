@@ -1,7 +1,7 @@
 import { KafkaQuery } from "./KafkaQuery";
 
 export class KafkaMessage {
-    message: KafkaQuery;
+    message:        KafkaQuery;
     emitter: string;
     receiver: string;
 
@@ -10,4 +10,6 @@ export class KafkaMessage {
         this.emitter = emitter;
         this.receiver = receiver;
     }
+
+
 }
