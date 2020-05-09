@@ -1,5 +1,5 @@
 export class Pessoa {
-    _id: string;
+    _id?: string;
     nome: string;
     email: string;
     isActive: boolean;
