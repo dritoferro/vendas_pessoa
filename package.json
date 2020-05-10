@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node ./src/index.ts",
+    "start": "ts-node ./src/App.ts",
     "build": "tsc"
   },
   "repository": {
@@ -18,18 +18,26 @@
   },
   "homepage": "https://github.com/dritoferro/vendas_pessoa#readme",
   "dependencies": {
+    "@marblejs/core": "^3.1.1",
+    "@marblejs/middleware-body": "^3.1.1",
+    "@types/dotenv": "^8.2.0",
     "@types/kafka-node": "^2.0.9",
     "@types/node": "^12.7.5",
+    "add": "^2.0.6",
     "dotenv": "^8.1.0",
     "fastify": "^2.8.0",
     "fastify-swagger": "^2.4.0",
+    "fp-ts": "^2.5.4",
     "ip": "^1.1.5",
     "kafkajs": "^1.11.0",
     "mongodb": "^3.3.2",
-    "typescript": "^3.6.3"
+    "rxjs": "^6.5.5",
+    "ts-node": "^8.10.1",
+    "typescript": "^3.8.3"
   },
   "devDependencies": {
     "@types/ip": "^1.1.0",
+    "@types/mongodb": "^3.5.16",
     "@typescript-eslint/eslint-plugin": "^2.31.0",
     "@typescript-eslint/parser": "^2.31.0",
     "eslint": "^6.8.0",

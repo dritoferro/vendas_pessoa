@@ -5,11 +5,7 @@ export class KafkaMessage {
   emitter: string;
   receiver: string;
 
-  constructor(
-    message: KafkaQuery,
-    emitter: string,
-    receiver: string = undefined
-  ) {
+  constructor(message: KafkaQuery, emitter: string, receiver: string = '') {
     this.message = message;
     this.emitter = emitter;
     this.receiver = receiver;
