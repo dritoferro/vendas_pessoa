@@ -1,10 +1,10 @@
 import { httpListener } from '@marblejs/core';
-// import { logger$ } from '@marblejs/middleware-logger';
+import { logger$ } from '@marblejs/middleware-logger';
 import { bodyParser$ } from '@marblejs/middleware-body';
-import { api$ } from './PessoaEffects';
+import { pessoa$ } from './PessoaEffects';
 
 const middlewares = [
-  //   logger$(),
+  logger$(),
   bodyParser$(),
   // middleware3$
   // middleware4$
@@ -12,7 +12,7 @@ const middlewares = [
 ];
 
 const effects = [
-  api$,
+  pessoa$,
   // endpoint2$
   // endpoint3$
   // ...
