@@ -2,6 +2,7 @@ import * as ip from 'ip';
 // import * as service from '../service/PessoaService';
 import { Pessoa } from '../model/Pessoa';
 import { of, Observable } from 'rxjs';
+import { HttpStatus } from '@marblejs/core';
 
 // const insertPessoa = async (req, reply) => {
 //   const obj: Pessoa = req.body;
@@ -15,9 +16,18 @@ import { of, Observable } from 'rxjs';
 //   }
 // };
 
-const getPessoaById = (id: string) => {
+interface TesteRetorno {
+  body: {
+    message: string;
+    sqlId?: number;
+    error?: Error;
+  };
+  status: number;
+}
+
+const getPessoaById = async (id: string): Promise<TesteRetorno> => {
   // const get = await service.getPessoaById(id);
-  return of(`${id} da pessoa`);
+  return { body: { message: `${id} da pessoa` }, status: HttpStatus.OK };
 };
 
 // const updatePessoaById = async (req, reply) => {

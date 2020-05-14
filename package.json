@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node ./src/App.ts",
+    "start": "ts-node ./src/app.ts",
     "build": "tsc"
   },
   "repository": {
@@ -20,6 +20,7 @@
   "dependencies": {
     "@marblejs/core": "^3.1.1",
     "@marblejs/middleware-body": "^3.1.1",
+    "@marblejs/middleware-io": "^3.1.1",
     "@marblejs/middleware-logger": "^3.1.1",
     "@types/dotenv": "^8.2.0",
     "@types/kafka-node": "^2.0.9",

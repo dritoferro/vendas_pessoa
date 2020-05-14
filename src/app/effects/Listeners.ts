@@ -1,7 +1,7 @@
 import { httpListener } from '@marblejs/core';
 import { logger$ } from '@marblejs/middleware-logger';
 import { bodyParser$ } from '@marblejs/middleware-body';
-import { pessoa$ } from './PessoaEffects';
+import { pessoa$ } from './pessoa.effects';
 
 const middlewares = [
   logger$(),
