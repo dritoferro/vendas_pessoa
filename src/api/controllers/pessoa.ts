@@ -1,6 +1,6 @@
 import * as ip from 'ip';
 // import * as service from '../service/PessoaService';
-import { Pessoa } from '../model/Pessoa';
+import { Pessoa } from '../../models/Pessoa';
 import { of, Observable } from 'rxjs';
 import { HttpStatus } from '@marblejs/core';
 
@@ -15,20 +15,6 @@ import { HttpStatus } from '@marblejs/core';
 //     reply.send({ message: 'Algo errado aconteceu' });
 //   }
 // };
-
-interface TesteRetorno {
-  body: {
-    message: string;
-    sqlId?: number;
-    error?: Error;
-  };
-  status: number;
-}
-
-const getPessoaById = async (id: string): Promise<TesteRetorno> => {
-  // const get = await service.getPessoaById(id);
-  return { body: { message: `${id} da pessoa` }, status: HttpStatus.OK };
-};
 
 // const updatePessoaById = async (req, reply) => {
 //   const id: string = req.params.id;
@@ -58,10 +44,3 @@ const getPessoaById = async (id: string): Promise<TesteRetorno> => {
 //     });
 //   }
 // };
-
-export const controller = {
-  // insertPessoa,
-  getPessoaById,
-  // updatePessoaById,
-  // deletePessoaById,
-};

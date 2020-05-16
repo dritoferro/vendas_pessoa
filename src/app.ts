@@ -1,7 +1,7 @@
 // import { startConsumer } from './app/service/KafkaService';
 import { createServer } from '@marblejs/core';
 import { IO } from 'fp-ts/lib/IO';
-import { listener } from './app/effects/Listeners';
+import { listener } from './api/effects';
 
 // Run the server!
 const startUp = async () => {
