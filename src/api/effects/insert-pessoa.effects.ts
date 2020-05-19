@@ -1,17 +1,13 @@
-// const insertPessoa = async (req, reply) => {
-//   const obj: Pessoa = req.body;
-//   const insert = await service.insertPessoa(obj);
-//   if (insert) {
-//     reply.status(201);
-//     reply.send(insert);
-//   } else {
-//     reply.status(400);
-//     reply.send({ message: 'Algo errado aconteceu' });
-//   }
-// };
+import { dbConn } from '../../connection/DbConnection';
+import { Pessoa } from '../../models';
+import { insertPessoaValidator$, PessoaSchema } from '../validators';
+import { RouteEffect, r, use, HttpStatus } from '@marblejs/core';
+import { mergeMap } from 'rxjs/operators';
+import { DefaultResponse } from '../../models/ResponseModel';
 
-const insertPessoa = async (pessoa: Pessoa) => {
+const savePessoa = async (pessoa: PessoaSchema) => {
   const db = await dbConn();
+
   const temp = new Pessoa(
     pessoa.nome,
     pessoa.email,
@@ -21,5 +17,38 @@ const insertPessoa = async (pessoa: Pessoa) => {
     pessoa.isActive
   );
   const obj = await db.insertOne(temp);
+
   return obj.ops;
 };
+
+const insertPessoa = async (pessoa: PessoaSchema): Promise<DefaultResponse> => {
+  const insert = await savePessoa(pessoa);
+  if (insert) {
+    return {
+      body: {
+        message: 'Successfully inserted',
+        value: pessoa,
+      },
+      status: HttpStatus.CREATED,
+    };
+  } else {
+    return {
+      body: {
+        message: 'Something went wrong',
+        value: pessoa,
+      },
+      status: HttpStatus.BAD_REQUEST,
+    };
+  }
+};
+
+export const insertPessoaEffect$: RouteEffect = r.pipe(
+  r.matchPath('/pessoas'),
+  r.matchType('POST'),
+  r.useEffect((req$) =>
+    req$.pipe(
+      use(insertPessoaValidator$),
+      mergeMap((req) => insertPessoa(req.body))
+    )
+  )
+);
