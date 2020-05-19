@@ -3,7 +3,7 @@ import { mergeMap } from 'rxjs/operators';
 import { getByIdValidator$ } from '../validators';
 import { DefaultResponse } from '../../models';
 import { ObjectId } from 'mongodb';
-import { dbConn } from '../../connection/DbConnection';
+import { dbConn } from '../../connection';
 
 const getPessoaById = async (id: string) => {
   const db = await dbConn();

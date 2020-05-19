@@ -1,4 +1,4 @@
-import { dbConn } from '../../connection/DbConnection';
+import { dbConn } from '../../connection';
 import { Pessoa } from '../../models';
 import { insertPessoaValidator$, PessoaSchema } from '../validators';
 import { RouteEffect, r, use, HttpStatus } from '@marblejs/core';
