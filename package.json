@@ -21,7 +21,7 @@
     "@types/kafka-node": "^2.0.9",
     "@types/node": "^12.7.5",
     "dotenv": "^8.1.0",
-    "fastify": "^2.8.0",
+    "fastify": "^2.15.1",
     "fastify-swagger": "^2.4.0",
     "ip": "^1.1.5",
     "kafkajs": "^1.11.0",
